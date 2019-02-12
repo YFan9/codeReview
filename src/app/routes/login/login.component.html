@@ -1,0 +1,30 @@
+<div class="wrap">
+  <div class="login-box">
+    <div class="login-title">demo登录页面</div>
+    <div class="login-content">
+      <div class="inp-name inp-wrap">
+        <input
+          type="text"
+          [(ngModel)]="userInfo.name"
+          (ngModelChange)="changeUserName()"
+          placeholder="请输入账号"
+        />
+      </div>
+      <div class="inp-pwd inp-wrap">
+        <input
+          type="password"
+          [(ngModel)]="userInfo.password"
+          (ngModelChange)="changePwd()"
+          placeholder="请输入密码"
+        />
+      </div>
+      <button
+        [disabled]="!btnChecked"
+        [ngClass]="{ btnDisabled: btnChecked == false }"
+        (click)="checkLogin()"
+      >
+        登录
+      </button>
+    </div>
+  </div>
+</div>

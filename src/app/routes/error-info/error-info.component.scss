@@ -1,0 +1,26 @@
+.wrap{
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/images/error/errorInfo.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    .goBackHome{
+        width: 200px;
+        height: 40px;
+        cursor: pointer;
+        position: absolute;
+        left: 50%;
+        margin-left: -100px;
+        bottom: 168px;
+    }
+    .markShadow{
+        width: 250px;
+        height: 30px;
+        position: absolute;
+        bottom: 104px;
+        left: 50%;
+        background-color: #fff;
+        transform: translateX(-50%);
+    }
+}
