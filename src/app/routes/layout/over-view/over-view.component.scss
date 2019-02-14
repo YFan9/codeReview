@@ -1,17 +1,15 @@
 .wrap {
   width: 100%;
   height: 100%;
-  background-image: url('../../../../assets/images/overview/bg_overview.jpg');
+  background-image: url("../../../../assets/images/overview/bg_overview.jpg");
   background-position: center;
   display: flex;
   justify-content: space-between;
-
   .img-myselfInfo,
   .img-webInfo {
     width: 50%;
     height: 100%;
     position: relative;
-
     img {
       cursor: pointer;
       width: 400px;
@@ -24,7 +22,6 @@
       top: 0;
       bottom: 0;
     }
-
     span {
       color: #fff;
       font-size: 38px;
@@ -35,17 +32,13 @@
       margin-top: -160px;
     }
   }
-
   .img-myselfInfo {
-
     img,
     span {
       right: 100px;
     }
   }
-
   .img-webInfo {
-
     img,
     span {
       left: 100px;

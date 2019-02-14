@@ -1,5 +1,8 @@
 import { Component, OnInit, ElementRef, Renderer2 } from "@angular/core";
-import { Router, ActivatedRoute } from "../../../../node_modules/@angular/router";
+import {
+  Router,
+  ActivatedRoute
+} from "../../../../node_modules/@angular/router";
 
 @Component({
   selector: "app-layout",
@@ -7,7 +10,12 @@ import { Router, ActivatedRoute } from "../../../../node_modules/@angular/router
   styleUrls: ["./layout.component.scss"]
 })
 export class LayoutComponent implements OnInit {
-  constructor(private el: ElementRef, private renderer: Renderer2, private router: Router,private routes:ActivatedRoute) { }
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private router: Router,
+    private routes: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     let username = JSON.parse(sessionStorage.getItem("userInfo")).name;
@@ -26,22 +34,22 @@ export class LayoutComponent implements OnInit {
    * 绑定事件，全局隐藏气泡卡片
    */
   bindHiddenPopover() {
-    let wrapDiv = this.el.nativeElement.querySelector('.wrap');
-    this.renderer.listen(wrapDiv, 'click', () => {
+    let wrapDiv = this.el.nativeElement.querySelector(".wrap");
+    this.renderer.listen(wrapDiv, "click", () => {
       this.isClickPopover = false;
-    })
+    });
   }
   loginOut() {
-    sessionStorage.removeItem('userInfo');
-    this.router.navigate(['login']);
+    sessionStorage.removeItem("userInfo");
+    this.router.navigate(["login"]);
   }
-  goBack(){
-    let pathname=window.location.pathname;
-    let appointStr='/overview'
-    if(pathname.includes(appointStr)){
+  goBack() {
+    let pathname = window.location.pathname;
+    let appointStr = "/overview";
+    if (pathname.includes(appointStr)) {
       this.loginOut();
-    }else{
-      this.router.navigate(['overview']);
+    } else {
+      this.router.navigate(["overview"]);
     }
   }
 }

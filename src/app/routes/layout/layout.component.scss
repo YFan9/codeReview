@@ -2,18 +2,15 @@
   width: 100%;
   height: 100%;
   position: relative;
-
   .routerOut {
     height: calc(100% - 50px);
   }
 }
-
 .header-row {
   display: flex;
   justify-content: space-between;
-  background-color: #0059B2;
+  background-color: #0059b2;
   height: 50px;
-
   .header-left {
     color: #fff;
     padding-left: 30px;
@@ -24,20 +21,16 @@
     display: flex;
     align-items: center;
     color: #fff;
-
     .header-right-userInfo {
       display: flex;
       align-items: center;
       border-right: 1px solid #ccc;
-
       .handlePopover {
         cursor: pointer;
-
         img {
           height: 40px;
           border-radius: 50%;
         }
-
         .triangle {
           margin-left: 5px;
           border: 5px solid transparent;
@@ -48,16 +41,15 @@
           border-top-color: #fff;
         }
       }
-
       .username {
         margin-left: 8px;
         margin-right: 20px;
       }
     }
-
     .goBack {
       margin: 0 10px;
-      background: url('../../../assets/images/layout/icon_tool.png') -100px -63px no-repeat;
+      background: url("../../../assets/images/layout/icon_tool.png") -100px -63px
+        no-repeat;
       width: 32px;
       height: 32px;
       cursor: pointer;
@@ -75,9 +67,8 @@
   text-align: center;
   border-radius: 4px;
   background-color: #fff;
-
   &::before {
-    content: '';
+    content: "";
     display: inline-block;
     border: 10px solid transparent;
     border-bottom-color: inherit;
@@ -86,7 +77,6 @@
     left: 50%;
     margin-left: -10px;
   }
-
   p {
     cursor: pointer;
     margin: 0;

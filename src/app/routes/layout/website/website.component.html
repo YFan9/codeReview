@@ -1,13 +1,30 @@
 <div class="wrap">
   <div class="content-top google-scrollbar">
     <div class="content-top-wrap">
-      <div class="content-top-left"></div>
-      <div class="content-top-middle"></div>
-      <div class="content-top-right"></div>
+      <div class="content-top-left">
+        <div class="card-top-title">angular框架</div>
+        <div class="card-content google-scrollbar">
+          <div class="angularInfo" *ngFor="let item of angularInfoArr">
+            <div>
+              <span>{{ item.title }}：</span>{{ item.description }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-top-middle">
+        <div class="card-top-title">架构思路</div>
+      </div>
+      <div class="content-top-right">
+        <div class="card-top-title">CSS3样式</div>
+      </div>
     </div>
   </div>
   <div class="content-bottom">
-    <div class="content-bottom-left"></div>
-    <div class="content-bottom-right"></div>
+    <div class="content-bottom-left">
+      <div class="card-top-title">基础数据</div>
+    </div>
+    <div class="content-bottom-right">
+      <div class="card-top-title">参考资源</div>
+    </div>
   </div>
 </div>
