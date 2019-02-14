@@ -1,0 +1,14 @@
+.wrap{
+    height: 100%;
+    width: 100%;
+    .content-top{
+        height: 60%;
+        width: 100%;
+        border: 1px solid #ccc
+    }
+    .content-bottom{
+        height: 40%;
+        width: 100%;
+        border: 1px solid #ccc
+    }
+}

@@ -1,24 +1,94 @@
-.header-row{
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .routerOut {
+    height: calc(100% - 50px);
+  }
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  background-color: #0059B2;
+  height: 50px;
+
+  .header-left {
+    color: #fff;
+    padding-left: 30px;
+    line-height: 50px;
+  }
+
+  .header-right {
     display: flex;
-    justify-content: space-between;
-    background-color: #0059B2;
-    height: 50px;
-    .header-left{
-        color: #fff;
-        padding-left: 30px;
-        line-height: 50px;
-    }
-    .header-right{
-        display: flex;
-        align-items: center;
-        color: #fff;
-        img{
-            height: 80%;
-            margin-right: 8px;
-            border-radius: 50%;
+    align-items: center;
+    color: #fff;
+
+    .header-right-userInfo {
+      display: flex;
+      align-items: center;
+      border-right: 1px solid #ccc;
+
+      .handlePopover {
+        cursor: pointer;
+
+        img {
+          height: 40px;
+          border-radius: 50%;
         }
-        span{
-            margin-right: 20px;
+
+        .triangle {
+          margin-left: 5px;
+          border: 5px solid transparent;
+          display: inline-block;
+          vertical-align: text-bottom;
+          vertical-align: -webkit-baseline-middle;
+          vertical-align: -moz-middle-with-baseline;
+          border-top-color: #fff;
         }
+      }
+
+      .username {
+        margin-left: 8px;
+        margin-right: 20px;
+      }
     }
+
+    .goBack {
+      margin: 0 10px;
+      background: url('../../../assets/images/layout/icon_tool.png') -100px -63px no-repeat;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+  }
+}
+
+.popover {
+  position: absolute;
+  right: 95px;
+  top: 60px;
+  width: 80px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 3px #000;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #fff;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    border: 10px solid transparent;
+    border-bottom-color: inherit;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    margin-left: -10px;
+  }
+
+  p {
+    cursor: pointer;
+    margin: 0;
+  }
 }

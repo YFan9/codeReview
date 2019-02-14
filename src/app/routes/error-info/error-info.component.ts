@@ -11,6 +11,6 @@ export class ErrorInfoComponent implements OnInit {
 
   ngOnInit() {}
   goBackHome() {
-    this.router.navigate(["../"], { relativeTo: this.route });
+    this.router.navigate(["overview"]);
   }
 }

@@ -13,7 +13,10 @@ const routes: Routes = [
     path: "",
     canActivate: [CanGuard],
     component: LayoutComponent,
-    children: [{ path: "overview", component: OverViewComponent }]
+    children: [
+      { path: "overview", component: OverViewComponent },
+      { path: 'myself', loadChildren: './routes/layout/myself/myself.module#MyselfModule' },
+      { path: 'website', loadChildren: './routes/layout/website/website.module#WebsiteModule' },]
   },
   { path: "**", component: ErrorInfoComponent }
 ];
@@ -22,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

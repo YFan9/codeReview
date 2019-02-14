@@ -1,0 +1,54 @@
+.wrap {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../../assets/images/overview/bg_overview.jpg');
+  background-position: center;
+  display: flex;
+  justify-content: space-between;
+
+  .img-myselfInfo,
+  .img-webInfo {
+    width: 50%;
+    height: 100%;
+    position: relative;
+
+    img {
+      cursor: pointer;
+      width: 400px;
+      height: 200px;
+      margin: auto 0;
+      border: 1px solid #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+    }
+
+    span {
+      color: #fff;
+      font-size: 38px;
+      height: 60px;
+      line-height: 60px;
+      position: absolute;
+      top: 50%;
+      margin-top: -160px;
+    }
+  }
+
+  .img-myselfInfo {
+
+    img,
+    span {
+      right: 100px;
+    }
+  }
+
+  .img-webInfo {
+
+    img,
+    span {
+      left: 100px;
+    }
+  }
+}
