@@ -1,0 +1,24 @@
+<div class="personal-speak-area" *ngFor="let item of speakInfoArr">
+  <div class="personal-speak-left">
+    <img [src]="item.src" alt="" />
+  </div>
+  <div class="personal-speak-right">
+    <div class="speak-right-top speak-right-section">{{ item.name }}</div>
+    <div class="speak-right-middle speak-right-section">{{ item.content }}</div>
+    <div class="speak-right-bottom speak-right-section">
+      <span class="personal-speak-data">{{ item.date }}</span>
+      <div class="personal-speak-func">
+        <span
+          class="speak-icon"
+          [ngClass]="{ upThumbing: item.upThumb.isUpThumbing == true }"
+          (click)="hindleUpThumb(item.id)"
+          ><i nz-icon type="like" theme="outline"></i
+          >{{ item.upThumb.count }}</span
+        >
+        <span class="speak-other-people speak-icon"
+          ><i nz-icon type="message" theme="outline"></i>回复</span
+        >
+      </div>
+    </div>
+  </div>
+</div>

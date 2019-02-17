@@ -45,7 +45,7 @@ export class LayoutComponent implements OnInit {
   }
   goBack() {
     let pathname = window.location.pathname;
-    let appointStr = "/overview";
+    const appointStr = "/overview";
     if (pathname.includes(appointStr)) {
       this.loginOut();
     } else {

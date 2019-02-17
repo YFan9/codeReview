@@ -32,22 +32,22 @@
       .content-top-left,
       .content-top-middle,
       .content-top-right {
+        overflow: hidden;
         width: 30%;
         height: 96%;
         border: 1px solid #eee;
         border-radius: 4px;
         box-shadow: 3px 3px 6px #ccc;
         padding: 10px;
-      }
-      .content-top-left {
-        margin-left: 30px;
-        overflow: hidden;
-        .angular-info {
+        .card-info {
           margin-bottom: 5px;
           span {
             color: red;
           }
         }
+      }
+      .content-top-left {
+        margin-left: 30px;
       }
       .content-top-right {
         margin-right: 30px;
@@ -61,11 +61,19 @@
     align-items: center;
     .content-bottom-left,
     .content-bottom-right {
+      overflow: hidden;
       height: 93%;
       box-shadow: 3px -3px 6px #ccc;
       border: 1px solid #eee;
       border-radius: 4px;
       padding: 10px;
+      .card-info {
+        margin-bottom: 5px;
+        word-break: break-all;
+        span {
+          color: red;
+        }
+      }
     }
     .content-bottom-left {
       width: 55%;
@@ -94,11 +102,11 @@
     overflow-y: auto;
     height: calc(100% - 60px);
     padding: 2px;
-    .chart-angular,
-    .chart-frame,
-    .chart-css,
-    .chart-speak {
+    .chart-canvas {
       height: 100%;
+    }
+    .chart-source {
+      min-height: 230px;
     }
   }
 }

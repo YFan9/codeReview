@@ -1,4 +1,4 @@
-<div class="wrap">
+<div class="wrap" tabindex="0">
   <div class="login-box">
     <div class="login-title">demo登录页面</div>
     <div class="login-content">
@@ -8,6 +8,7 @@
           [(ngModel)]="userInfo.name"
           (ngModelChange)="changeUserName()"
           placeholder="请输入账号"
+          #inpName
         />
       </div>
       <div class="inp-pwd inp-wrap">

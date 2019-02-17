@@ -8,10 +8,10 @@
         <div class="card-top-title">angular框架</div>
         <div class="card-content google-scrollbar">
           <ng-container *ngIf="switchView; else otherAngular">
-            <div echarts [options]="angularView" class="chart-angular"></div>
+            <div echarts [options]="angularView" class="chart-canvas chart-angular"></div>
           </ng-container>
           <ng-template #otherAngular>
-            <div class="angular-info" *ngFor="let item of angularInfoArr">
+            <div class="angular-info card-info" *ngFor="let item of angularInfoArr">
               <div>
                 <span>{{ item.title }}：</span>{{ item.description }}
               </div>
@@ -23,10 +23,10 @@
         <div class="card-top-title">架构思路</div>
         <div class="card-content google-scrollbar">
           <ng-container *ngIf="switchView; else otherFrame">
-            <div echarts [options]="frameView" class="chart-frame"></div>
+            <div echarts [options]="frameView" class="chart-canvas chart-frame"></div>
           </ng-container>
           <ng-template #otherFrame>
-            <div class="frame-info" *ngFor="let item of frameInfoArr">
+            <div class="frame-info card-info" *ngFor="let item of frameInfoArr">
               <div>
                 <span>{{ item.title }}：</span>{{ item.description }}
               </div>
@@ -38,10 +38,10 @@
         <div class="card-top-title">CSS3样式</div>
         <div class="card-content google-scrollbar">
           <ng-container *ngIf="switchView; else otherCSS">
-            <div echarts [options]="cssView" class="chart-css"></div>
+            <div echarts [options]="cssView" class="chart-canvas chart-css"></div>
           </ng-container>
           <ng-template #otherCSS>
-            <div class="css-info" *ngFor="let item of CssInfoArr">
+            <div class="css-info card-info" *ngFor="let item of cssInfoArr">
               <div>
                 <span>{{ item.title }}：</span>{{ item.description }}
               </div>
@@ -56,19 +56,27 @@
       <div class="card-top-title">评论区</div>
       <div class="card-content google-scrollbar">
         <ng-container *ngIf="switchView; else otherSpeak">
-          <div echarts [options]="speakView" class="chart-speak"></div>
+          <div echarts [options]="speakView" class="chart-canvas chart-speak"></div>
         </ng-container>
         <ng-template #otherSpeak>
-          <div class="speak-info" *ngFor="let item of speakInfoArr">
+          <app-speak-area></app-speak-area>
+        </ng-template>
+      </div>
+    </div>
+    <div class="content-bottom-right">
+      <div class="card-top-title">参考资源</div>
+      <div class="card-content google-scrollbar">
+        <ng-container *ngIf="switchView; else otherSource">
+          <div echarts [options]="sourceView" class="chart-canvas chart-source"></div>
+        </ng-container>
+        <ng-template #otherSource>
+          <div class="source-info card-info" *ngFor="let item of sourceInfoArr">
             <div>
               <span>{{ item.title }}：</span>{{ item.description }}
             </div>
           </div>
         </ng-template>
       </div>
-    </div>
-    <div class="content-bottom-right">
-      <div class="card-top-title">参考资源</div>
     </div>
   </div>
 </div>

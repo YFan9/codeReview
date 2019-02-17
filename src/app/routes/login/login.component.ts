@@ -1,4 +1,10 @@
-import { Component, OnInit, ElementRef, Renderer2 } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  Renderer2,
+  ViewChild
+} from "@angular/core";
 import { isNullOrUndefined } from "util";
 import { LoginService } from "src/app/services/login/login.service";
 import { NzMessageService } from "ng-zorro-antd";
@@ -19,7 +25,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.bindEnterKey();
+    this.inpName.nativeElement.focus();
+    this.judgeBtnAble(this.userInfo.name,this.userInfo.password);
   }
+  @ViewChild("inpName") inpName;
   userInfo: any = {
     name: "",
     password: ""
@@ -32,13 +41,7 @@ export class LoginComponent implements OnInit {
     this.judgeBtnAble(this.userInfo.name, this.userInfo.password);
   }
   judgeBtnAble(name, pwd) {
-    if (
-      !isNullOrUndefined(name) &&
-      !isNullOrUndefined(pwd) &&
-      name !== "" &&
-      pwd !== ""
-    )
-      this.btnChecked = true;
+    if (name && pwd && name !== "" && pwd !== "") this.btnChecked = true;
     else this.btnChecked = false;
   }
   checkLogin() {
@@ -60,7 +63,7 @@ export class LoginComponent implements OnInit {
     this.userInfo = { name: "", password: "" };
   }
   bindEnterKey() {
-    let domDiv = this.el.nativeElement.querySelector(".login-box");
+    let domDiv = this.el.nativeElement.querySelector(".wrap");
     this.renderer.listen(domDiv, "keyup", item => {
       if (item.keyCode == 13) {
         this.checkLogin();
