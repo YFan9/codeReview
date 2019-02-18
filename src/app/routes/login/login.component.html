@@ -19,6 +19,7 @@
           placeholder="请输入密码"
         />
       </div>
+      <div class="temp-login" (click)="tempLogin()"><span>临时登录</span></div>
       <button
         [disabled]="!btnChecked"
         [ngClass]="{ btnDisabled: btnChecked == false }"

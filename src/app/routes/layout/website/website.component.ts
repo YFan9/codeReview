@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import {
-  angularInfo,
-  frameInfo,
-  cssInfo,
-  speakInfo,
-  sourceInfo
-} from "src/app/services/website/websiteInfo";
+  angularInfoService,
+  frameInfoService,
+  cssInfoService,
+  speakInfoService,
+  sourceInfoService
+} from "../../../services/website/websiteInfo.service";
 
 @Component({
   selector: "app-website",
@@ -13,10 +13,16 @@ import {
   styleUrls: ["./website.component.scss"]
 })
 export class WebsiteComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private angularInfoSrv: angularInfoService,
+    private frameInfoSrv: frameInfoService,
+    private cssInfoSrv: cssInfoService,
+    private speakInfoSrv: speakInfoService,
+    private sourceInfoSrv: sourceInfoService
+  ) {}
 
   ngOnInit() {
-    this.creatAngularInfo();
+    this.creatInfo();
   }
   angularInfoArr: Array<any> = [];
   frameInfoArr: Array<any> = [];
@@ -29,20 +35,20 @@ export class WebsiteComponent implements OnInit {
   speakView: any;
   sourceView: any;
   initNum: number = 0;
-  creatAngularInfo() {
-    this.angularInfoArr = new angularInfo().array;
-    this.frameInfoArr = new frameInfo().array;
-    this.cssInfoArr = new cssInfo().array;
-    this.sourceInfoArr = new sourceInfo().array;
+  creatInfo() {
+    this.angularInfoArr = this.angularInfoSrv.array;
+    this.frameInfoArr = this.frameInfoSrv.array;
+    this.cssInfoArr = this.cssInfoSrv.array;
+    this.sourceInfoArr = this.sourceInfoSrv.array;
   }
   changeBtn() {
     this.switchView = !this.switchView;
     if (this.initNum === 0) {
-      this.angularView = new angularInfo().chartOption;
-      this.frameView = new frameInfo().chartOption;
-      this.cssView = new cssInfo().chartOption;
-      this.speakView = new speakInfo().chartOption;
-      this.sourceView = new sourceInfo().chartOption;
+      this.angularView = this.angularInfoSrv.chartOption;
+      this.frameView = this.frameInfoSrv.chartOption;
+      this.cssView = this.cssInfoSrv.chartOption;
+      this.speakView = this.speakInfoSrv.chartOption;
+      this.sourceView = this.sourceInfoSrv.chartOption;
     }
   }
 }

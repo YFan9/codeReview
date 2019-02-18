@@ -1,8 +1,32 @@
 <div class="wrap">
-  <div class="content-top">
-    <div class="content-top-left"></div>
-    <div class="content-top-middle"></div>
-    <div class="content-top-right"></div>
+  <div class="content-left">
+    <div class="card-top-title">
+      <span class="card-title-info">作者资料</span>
+      <div class="page-turn">
+        <span class="author-source-left" (click)="authorTrunLeft($event)"
+          ><i nz-icon type="left" theme="outline"></i
+        ></span>
+        <span class="author-source-right" (click)="authorTrunRight($event)"
+          ><i nz-icon type="right" theme="outline"></i
+        ></span>
+      </div>
+    </div>
+    <div class="card-content">
+      <div class="card-content-info" *ngFor="let item of authorInfoArr">
+        <div>{{item.content}}</div>
+      </div>
+    </div>
   </div>
-  <div class="content-bottom"></div>
+  <div class="content-right">
+    <div class="content-right-top">
+      <div class="card-top-title">
+        <span class="card-title-info">项目经验</span>
+      </div>
+    </div>
+    <div class="content-right-bottom">
+      <div class="card-top-title">
+        <span class="card-title-info">心得体会</span>
+      </div>
+    </div>
+  </div>
 </div>

@@ -5,8 +5,7 @@ import {
   Renderer2,
   ViewChild
 } from "@angular/core";
-import { isNullOrUndefined } from "util";
-import { LoginService } from "src/app/services/login/login.service";
+import { LoginService } from "../../services/login/login.service";
 import { NzMessageService } from "ng-zorro-antd";
 import { Router } from "@angular/router";
 @Component({
@@ -26,7 +25,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.bindEnterKey();
     this.inpName.nativeElement.focus();
-    this.judgeBtnAble(this.userInfo.name,this.userInfo.password);
+    this.judgeBtnAble(this.userInfo.name, this.userInfo.password);
   }
   @ViewChild("inpName") inpName;
   userInfo: any = {
@@ -46,18 +45,24 @@ export class LoginComponent implements OnInit {
   }
   checkLogin() {
     if (this.loginSrv.checkedUserInfo(this.userInfo)) {
-      this.message.success("登录成功");
-      this.router.navigate(["overview"]);
-      let userInfo = {
-        name: window.btoa(this.userInfo.name),
-        password: window.btoa(this.userInfo.password)
-      };
-      sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
+      this.loginSuccess(this.userInfo.name, this.userInfo.password);
     } else {
-      this.message.error("账号或者密码错误");
-      this.userInfo.password = "";
-      this.btnChecked = false;
+      this.loginError();
     }
+  }
+  loginSuccess(name, password) {
+    this.message.success("登录成功");
+    this.router.navigate(["overview"]);
+    let userInfo = {
+      name: window.btoa(name),
+      password: window.btoa(password)
+    };
+    sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
+  }
+  loginError() {
+    this.message.error("账号或者密码错误");
+    this.userInfo.password = "";
+    this.btnChecked = false;
   }
   clearInp() {
     this.userInfo = { name: "", password: "" };
@@ -69,5 +74,8 @@ export class LoginComponent implements OnInit {
         this.checkLogin();
       }
     });
+  }
+  tempLogin() {
+    this.loginSuccess("guest","xxxxx1");
   }
 }

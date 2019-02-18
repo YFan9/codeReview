@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, Renderer2 } from "@angular/core";
 import {
   Router,
   ActivatedRoute
-} from "../../../../node_modules/@angular/router";
+} from "@angular/router";
 
 @Component({
   selector: "app-layout",

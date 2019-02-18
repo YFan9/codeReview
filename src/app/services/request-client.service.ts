@@ -2,9 +2,9 @@ import { Injectable } from "@angular/core";
 import {
   HttpClient,
   HttpHeaders
-} from "../../../node_modules/@angular/common/http";
+} from "@angular/common/http";
 import { retry, catchError } from "rxjs/operators";
-import { of } from "../../../node_modules/rxjs";
+import { of } from "rxjs";
 @Injectable({
   providedIn: "root"
 })

@@ -6,6 +6,8 @@
   justify-content: center;
   align-items: center;
   .login-box {
+    width: 480px;
+    text-align: center;
     .login-title {
       text-align: center;
       font-size: 68px;
@@ -28,7 +30,6 @@
           border: 1px solid rgba(255, 255, 255, 1);
           opacity: 0.3;
           border-radius: 5px;
-          margin: 20px;
           width: 300px;
           height: 40px;
           color: rgba(255, 255, 255, 1);
@@ -37,10 +38,21 @@
           outline: 0;
         }
       }
-
-      .inp-pwd {
+      .temp-login {
+        margin: 10px 0;
+        text-align: right;
+        padding-right: 90px;
+        span{
+          cursor: pointer;
+          color: #ccc;
+          &:hover{
+            color: #0059b2;
+          }
+        }
+      }
+      .inp-name {
         input {
-          margin-top: 0;
+          margin: 20px 0;
         }
       }
 

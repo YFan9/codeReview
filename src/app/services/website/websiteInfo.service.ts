@@ -1,10 +1,10 @@
-import { ShowDate } from "src/app/common-tool/show-date";
+import { ShowDate } from "../../common-tool/show-date";
 import { Injectable } from "@angular/core";
 
 @Injectable({
   providedIn: "root"
 })
-export class angularInfo {
+export class angularInfoService {
   constructor() {}
   array: Array<any> = [
     {
@@ -111,7 +111,7 @@ export class angularInfo {
   };
 }
 
-export class frameInfo {
+export class frameInfoService {
   constructor() {}
   array: Array<any> = [
     {
@@ -194,7 +194,7 @@ export class frameInfo {
   };
 }
 
-export class cssInfo {
+export class cssInfoService {
   piePatternSrc = "../../../assets/images/website/cssView_pie.png";
   bgPatternSrc = "../../../assets/images/website/cssView_bg.png";
   piePatternImg: any;
@@ -302,7 +302,7 @@ export class cssInfo {
   ];
 }
 
-export class speakInfo {
+export class speakInfoService {
   constructor() {}
   data: Array<any> = [
     ["2019-02-05", 3],
@@ -327,12 +327,84 @@ export class speakInfo {
       src: "../../../assets/images/website/cssView_pie.png",
       name: "admin",
       content:
-        "本网站所有数据流，均为前端模拟产生，刷新页面可能导致部分临时数据可能丢失",
+        "本网站所有数据流，均为前端模拟产生，刷新页面可能导致部分临时数据可能丢失，比如点赞功能。",
       date: ShowDate.differDate("2019-02-17"),
       upThumb: {
         count: 2,
         name: ["admin", "admin1"]
-      },
+      }
+    },
+    {
+      id: "xxxx2",
+      src: "../../../assets/images/website/cssView_pie.png",
+      name: "admin",
+      content:
+        "angular作为一个大而全的前端框架，虽然国内用的人远少于其他两大框架，但是其内置rxjs和ts的前瞻性，以及有谷歌背书的条件下。未来的发展一定不会差的。",
+      date: ShowDate.differDate("2019-02-11"),
+      upThumb: {
+        count: 3,
+        name: ["admin", "admin1", "admin4"]
+      }
+    },
+    {
+      id: "xxxx3",
+      src: "../../../assets/images/website/cssView_pie.png",
+      name: "admin",
+      content:
+        "angular与angular.js有着本质性的不同，angular.js属于angular的第一代版本，而angular几乎是对angular.js的重构",
+      date: ShowDate.differDate("2019-02-10"),
+      upThumb: {
+        count: 1,
+        name: ["admin1"]
+      }
+    },
+    {
+      id: "xxxx4",
+      src: "../../../assets/images/website/cssView_pie.png",
+      name: "admin",
+      content:
+        "其实三大框架都只是工具而已，说不定未来还会有更加革新性的技术出现，比如一直被关注的WebAssembly？当然对于一个程序员来说，编程思想以及解决问题的思路才是最重要的，这些都需要时间沉淀。",
+      date: ShowDate.differDate("2019-02-03"),
+      upThumb: {
+        count: 1,
+        name: ["admin"]
+      }
+    },
+    {
+      id: "xxxx5",
+      src: "../../../assets/images/website/cssView_pie.png",
+      name: "admin",
+      content:
+        "对于我这种非高级程序员来说，目前最好的语言是英语，最好的工具应该就是google了。",
+      date: ShowDate.differDate("2019-01-01"),
+      upThumb: {
+        count: 4,
+        name: ["admin1", "admin2", "admin3", "admin4"]
+      }
+    },
+    {
+      id: "xxxx6",
+      src: "../../../assets/images/website/cssView_pie.png",
+      name: "admin",
+      content:
+        "个人经验，工作中你遇到的连google都解决不了的问题，其中百分之九十以上，都只会是因为你犯了一些超低级错误。",
+      date: ShowDate.differDate("2018-12-17"),
+      upThumb: {
+        count: 2,
+        name: ["admin", "admin1"]
+      }
+    },
+    {
+      id: "xxxx7",
+      src: "../../../assets/images/website/cssView_pie.png",
+      name: "admin",
+      content:
+        "前端程序员是最有思想的，因为他不仅要和后端沟通，还要和UI沟通，和产品经理沟通。说不定还要直接和用户沟通，嗯~同理心估计就是这样来的",
+      date: ShowDate.differDate("2018-02-17"),
+      upThumb: {
+        count: 0,
+        name: []
+      }
     }
   ];
   chartOption = {
@@ -370,7 +442,7 @@ export class speakInfo {
   };
 }
 
-export class sourceInfo {
+export class sourceInfoService {
   constructor() {}
   array: Array<any> = [
     {

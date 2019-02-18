@@ -1,13 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '../../../../../node_modules/@angular/router';
-import { MyselfComponent } from './myself.component';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
+import { MyselfComponent } from "./myself.component";
+import { NgZorroAntdModule } from "../../../../../node_modules/ng-zorro-antd";
+import { authorInfoService } from "../../../services/myself/myself.service";
 
 @NgModule({
   declarations: [MyselfComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild([{ path: '', component: MyselfComponent }])
-  ]
+    NgZorroAntdModule,
+    RouterModule.forChild([{ path: "", component: MyselfComponent }])
+  ],
+  providers: [authorInfoService]
 })
-export class MyselfModule { }
+export class MyselfModule {}

@@ -24,7 +24,6 @@
       display: flex;
       justify-content: space-between;
       padding-bottom: 10px;
-      border-bottom: 1px solid #eee;
       color: #8a9aa9;
       .upThumbing {
         color: #0059b2;
@@ -35,10 +34,25 @@
         i {
           margin-right: 5px;
         }
+        .blankSeat {
+          visibility: hidden;
+        }
         &:hover {
           opacity: 0.5;
         }
       }
     }
+  }
+}
+.personal-speak-area:not(:last-child) {
+  .speak-right-bottom {
+    border-bottom: 1px solid #eee;
+  }
+}
+.more-speak {
+  text-align: center;
+  span {
+    color: #0059b2;
+    cursor: pointer;
   }
 }
