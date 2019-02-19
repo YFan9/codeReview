@@ -24,11 +24,11 @@ export class WebsiteComponent implements OnInit {
   ngOnInit() {
     this.creatInfo();
   }
+  switchView: boolean = false;
   angularInfoArr: Array<any> = [];
   frameInfoArr: Array<any> = [];
   cssInfoArr: Array<any> = [];
   sourceInfoArr: Array<any> = [];
-  switchView: boolean = false;
   angularView: any;
   frameView: any;
   cssView: any;

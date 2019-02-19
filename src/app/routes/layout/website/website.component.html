@@ -5,58 +5,57 @@
   <div class="content-top google-scrollbar">
     <div class="content-top-wrap">
       <div class="content-top-left">
-        <div class="card-top-title">angular框架</div>
-        <div class="card-content google-scrollbar">
-          <ng-container *ngIf="switchView; else otherAngular">
-            <div echarts [options]="angularView" class="chart-canvas chart-angular"></div>
-          </ng-container>
-          <ng-template #otherAngular>
-            <div class="angular-info card-info" *ngFor="let item of angularInfoArr">
-              <div>
-                <span>{{ item.title }}：</span>{{ item.description }}
-              </div>
-            </div>
-          </ng-template>
-        </div>
+        <ng-container
+          *ngTemplateOutlet="
+            CardView;
+            context: {
+              $title: 'angular框架',
+              $otherDiv: otherAngular,
+              $view: angularView,
+              $contentInfo: angularInfoArr
+            }
+          "
+        ></ng-container>
       </div>
       <div class="content-top-middle">
-        <div class="card-top-title">架构思路</div>
-        <div class="card-content google-scrollbar">
-          <ng-container *ngIf="switchView; else otherFrame">
-            <div echarts [options]="frameView" class="chart-canvas chart-frame"></div>
-          </ng-container>
-          <ng-template #otherFrame>
-            <div class="frame-info card-info" *ngFor="let item of frameInfoArr">
-              <div>
-                <span>{{ item.title }}：</span>{{ item.description }}
-              </div>
-            </div>
-          </ng-template>
-        </div>
+        <ng-container
+          *ngTemplateOutlet="
+            CardView;
+            context: {
+              $title: '架构思路',
+              $otherDiv: otherFrame,
+              $view: frameView,
+              $contentInfo: frameInfoArr
+            }
+          "
+        ></ng-container>
       </div>
       <div class="content-top-right">
-        <div class="card-top-title">CSS3样式</div>
-        <div class="card-content google-scrollbar">
-          <ng-container *ngIf="switchView; else otherCSS">
-            <div echarts [options]="cssView" class="chart-canvas chart-css"></div>
-          </ng-container>
-          <ng-template #otherCSS>
-            <div class="css-info card-info" *ngFor="let item of cssInfoArr">
-              <div>
-                <span>{{ item.title }}：</span>{{ item.description }}
-              </div>
-            </div>
-          </ng-template>
-        </div>
+        <ng-container
+          *ngTemplateOutlet="
+            CardView;
+            context: {
+              $title: 'CSS3样式',
+              $otherDiv: otherCSS,
+              $view: cssView,
+              $contentInfo: cssInfoArr
+            }
+          "
+        ></ng-container>
       </div>
     </div>
   </div>
+  <!-- 评论区因为内容区域引用了其他组件，不使用公共卡片模版 -->
   <div class="content-bottom">
     <div class="content-bottom-left">
       <div class="card-top-title">评论区</div>
       <div class="card-content google-scrollbar">
         <ng-container *ngIf="switchView; else otherSpeak">
-          <div echarts [options]="speakView" class="chart-canvas chart-speak"></div>
+          <div
+            echarts
+            [options]="speakView"
+            class="chart-canvas chart-speak"
+          ></div>
         </ng-container>
         <ng-template #otherSpeak>
           <app-speak-area></app-speak-area>
@@ -64,19 +63,40 @@
       </div>
     </div>
     <div class="content-bottom-right">
-      <div class="card-top-title">参考资源</div>
-      <div class="card-content google-scrollbar">
-        <ng-container *ngIf="switchView; else otherSource">
-          <div echarts [options]="sourceView" class="chart-canvas chart-source"></div>
-        </ng-container>
-        <ng-template #otherSource>
-          <div class="source-info card-info" *ngFor="let item of sourceInfoArr">
-            <div>
-              <span>{{ item.title }}：</span>{{ item.description }}
-            </div>
-          </div>
-        </ng-template>
-      </div>
+      <ng-container
+        *ngTemplateOutlet="
+          CardView;
+          context: {
+            $title: '参考资源',
+            $otherDiv: otherSource,
+            $view: sourceView,
+            $contentInfo: sourceInfoArr
+          }
+        "
+      ></ng-container>
     </div>
   </div>
 </div>
+
+<!-- card公共模版-->
+<ng-template
+  #CardView
+  let-title="$title"
+  let-otherDiv="$otherDiv"
+  let-view="$view"
+  let-contentInfo="$contentInfo"
+>
+  <div class="card-top-title">{{ title }}</div>
+  <div class="card-content google-scrollbar">
+    <ng-container *ngIf="switchView; else otherDiv">
+      <div echarts [options]="view" class="chart-canvas"></div>
+    </ng-container>
+    <ng-template #otherDiv>
+      <div class="card-info" *ngFor="let item of contentInfo">
+        <div>
+          <span>{{ item.title }}：</span>{{ item.description }}
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</ng-template>

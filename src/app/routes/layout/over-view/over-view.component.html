@@ -1,10 +1,22 @@
 <div class="wrap">
-  <div class="img-myselfInfo">
-    <span>作者简介信息</span>
-    <img (click)="routeTo('myself')" src="../../../../assets/images/overview/myselfInfo.jpg" alt="个人简介信息" title="个人简介信息">
+  <div class="img-myself-info">
+    <div class="router-wrap" (click)="routeTo('myself')">
+      <span>作者简介信息</span>
+      <img
+        src="../../../../assets/images/overview/myselfInfo.jpg"
+        alt="个人简介信息"
+        title="个人简介信息"
+      />
+    </div>
   </div>
-  <div class="img-webInfo">
+  <div class="img-web-info">
+    <div class="router-wrap" (click)="routeTo('website')">
       <span>网站介绍信息</span>
-    <img (click)="routeTo('website')" src="../../../../assets/images/overview/websiteInfo.jpg" alt="网站介绍信息" title="网站介绍信息">
+      <img
+        src="../../../../assets/images/overview/websiteInfo.jpg"
+        alt="网站介绍信息"
+        title="网站介绍信息"
+      />
+    </div>
   </div>
 </div>

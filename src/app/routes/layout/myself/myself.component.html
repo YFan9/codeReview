@@ -1,32 +1,69 @@
 <div class="wrap">
   <div class="content-left">
-    <div class="card-top-title">
-      <span class="card-title-info">作者资料</span>
-      <div class="page-turn">
-        <span class="author-source-left" (click)="authorTrunLeft($event)"
-          ><i nz-icon type="left" theme="outline"></i
-        ></span>
-        <span class="author-source-right" (click)="authorTrunRight($event)"
-          ><i nz-icon type="right" theme="outline"></i
-        ></span>
-      </div>
-    </div>
-    <div class="card-content">
-      <div class="card-content-info" *ngFor="let item of authorInfoArr">
-        <div>{{item.content}}</div>
-      </div>
-    </div>
+    <!-- <span class="card-title-info">作者资料</span> -->
+    <ng-container
+      *ngTemplateOutlet="
+        PageTurn;
+        context: {
+          $trunLeft: authorTrunLeft,
+          $trunRight: authorTrunRight,
+          $titleTop: '作者资料',
+          $content: authorInfoArr
+        }
+      "
+    ></ng-container>
   </div>
   <div class="content-right">
     <div class="content-right-top">
-      <div class="card-top-title">
-        <span class="card-title-info">项目经验</span>
-      </div>
+      <ng-container
+        *ngTemplateOutlet="
+          PageTurn;
+          context: {
+            $trunLeft: expTrunLeft,
+            $trunRight: expTrunRight,
+            $titleTop: '项目经验',
+            $content: expInfoArr
+          }
+        "
+      ></ng-container>
     </div>
     <div class="content-right-bottom">
-      <div class="card-top-title">
-        <span class="card-title-info">心得体会</span>
-      </div>
+      <ng-container
+        *ngTemplateOutlet="
+          PageTurn;
+          context: {
+            $trunLeft: studyTrunLeft,
+            $trunRight: studyTrunRight,
+            $titleTop: '心得体会',
+            $content: studyInfoArr
+          }
+        "
+      ></ng-container>
     </div>
   </div>
 </div>
+<!-- 公共卡片模版 -->
+<ng-template
+  #PageTurn
+  let-trunLeft="$trunLeft"
+  let-trunRight="$trunRight"
+  let-title="$titleTop"
+  let-content="$content"
+>
+  <div class="card-top-title">
+    <span class="card-title-info">{{ title }}</span>
+    <div class="page-turn">
+      <span class="author-source-left" (click)="trunLeft($event)"
+        ><i nz-icon type="left" theme="outline"></i
+      ></span>
+      <span class="author-source-right" (click)="trunRight($event)"
+        ><i nz-icon type="right" theme="outline"></i
+      ></span>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="card-content-info" *ngFor="let item of content">
+      <div>{{ item.content }}</div>
+    </div>
+  </div>
+</ng-template>
