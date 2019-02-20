@@ -4,16 +4,18 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  .content-left {
-    padding: 10px;
-    height: 100%;
-    width: 60%;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    box-shadow: 3px 3px 6px #ccc;
+  .thunk-content{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 3px 3px 6px #ccc;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  .content-left {
+    height: 100%;
+    width: 60%;
   }
   .content-right {
     height: 100%;
@@ -21,14 +23,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    .content-right-top,
-    .content-right-bottom {
-      border-radius: 4px;
-      padding: 10px;
-      width: 100%;
-      box-shadow: 3px 3px 6px #ccc;
-      border: 1px solid #eee;
-    }
     .content-right-top {
       height: calc(60% - 10px);
     }
@@ -70,10 +64,49 @@
   .card-content {
     height: calc(100% - 60px);
     overflow: hidden;
-    .card-content-info {
+    .card-content-page {
       height: 100%;
-      div {
-        animation: pageturn 1.5s;
+      padding-left: 20px;
+      overflow-y: auto;
+      .card-content-info:not(:last-child) {
+        box-shadow: 0px 10px 10px -10px #999;
+        border-bottom: 1px solid #ccc;
+      }
+      .card-content-info {
+        margin-bottom: 10px;
+        .card-info-title {
+          color: rgba(0, 89, 178, 0.6);
+        }
+        .card-info-body {
+          animation: pageturn 1.5s;
+          padding-left: 30px;
+          margin-bottom: 10px;
+          .card-body-tsHeader {
+            color: #0059b2;
+            margin-right: 10px;
+          }
+          .card-body-tsImg {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+          }
+          .card-body-btn {
+            width: 45px;
+            height: 25px;
+            background: #fff;
+            color: #2cbdc5;
+            border: 1px solid #2cbdc5;
+            border-radius: 4px;
+            margin-left: 20px;
+            outline: 0;
+            cursor: pointer;
+          }
+          .card-body-tsInfo2 {
+            color: red;
+          }
+        }
       }
     }
   }

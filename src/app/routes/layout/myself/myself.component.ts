@@ -35,42 +35,22 @@ export class MyselfComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authorInfoArr = this.creatInfo(
-      this.authorInfoArr,
-      this.authorInfoSrv.array,
-      this.authorArrIndex
-    );
-    this.expInfoArr = this.creatInfo(
-      this.expInfoArr,
-      this.expInfoSrv.array,
-      this.expArrIndex
-    );
-    this.studyInfoArr = this.creatInfo(
-      this.studyInfoArr,
-      this.studyInfoSrv.array,
-      this.studyArrIndex
-    );
+    this.authorInfoArr = this.authorInfoSrv.array.slice(0, 1);
+    this.authorArrLen = this.authorInfoSrv.array.length;
+    this.expInfoArr = this.expInfoSrv.array.slice(0, 1);
+    this.expArrLen = this.expInfoSrv.array.length;
+    this.studyInfoArr = this.studyInfoSrv.array.slice(0, 1);
+    this.studyArrLen = this.studyInfoSrv.array.length;
   }
   authorInfoArr: Array<any> = [];
   authorArrIndex: number = 1;
+  authorArrLen: number = 1;
   expInfoArr: Array<any> = [];
   expArrIndex: number = 1;
+  expArrLen: number = 1;
   studyInfoArr: Array<any> = [];
   studyArrIndex: number = 1;
-  creatInfo(overArr, callArr, index) {
-    if (callArr.length > 0) {
-      overArr = callArr.slice(0, index);
-    }
-    return overArr;
-  }
-  creatAuthorInfo() {
-    if (this.authorInfoSrv.array.length > 0) {
-      this.authorInfoArr = this.authorInfoSrv.array.slice(
-        0,
-        this.authorArrIndex
-      );
-    }
-  }
+  studyArrLen: number = 1;
   authorTrunLeft(event) {
     [this.authorArrIndex, this.authorInfoArr] = this.trunLeft(
       event,
@@ -163,5 +143,18 @@ export class MyselfComponent implements OnInit {
       arr[i] = arr[i].bind(this);
     }
     return arr;
+  }
+
+  changeImg(event, item) {
+    event = event || window.event;
+    console.log(item);
+    let file = event.target.files[0];
+    console.log(file);
+    let readerFile = new FileReader();
+    readerFile.readAsDataURL(file);
+    readerFile.onload = (event: any) => {
+      item.tsInfo = event.target.result;
+    };
+    event.target.value = null;//防报错
   }
 }

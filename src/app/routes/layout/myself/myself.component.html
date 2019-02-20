@@ -1,5 +1,5 @@
 <div class="wrap">
-  <div class="content-left">
+  <div class="content-left thunk-content">
     <!-- <span class="card-title-info">作者资料</span> -->
     <ng-container
       *ngTemplateOutlet="
@@ -8,13 +8,14 @@
           $trunLeft: authorTrunLeft,
           $trunRight: authorTrunRight,
           $titleTop: '作者资料',
-          $content: authorInfoArr
+          $contentLen: authorArrLen,
+          $contentInfo: authorInfoArr
         }
       "
     ></ng-container>
   </div>
   <div class="content-right">
-    <div class="content-right-top">
+    <div class="content-right-top thunk-content">
       <ng-container
         *ngTemplateOutlet="
           PageTurn;
@@ -22,12 +23,13 @@
             $trunLeft: expTrunLeft,
             $trunRight: expTrunRight,
             $titleTop: '项目经验',
-            $content: expInfoArr
+            $contentLen: expArrLen,
+            $contentInfo: expInfoArr
           }
         "
       ></ng-container>
     </div>
-    <div class="content-right-bottom">
+    <div class="content-right-bottom thunk-content">
       <ng-container
         *ngTemplateOutlet="
           PageTurn;
@@ -35,7 +37,8 @@
             $trunLeft: studyTrunLeft,
             $trunRight: studyTrunRight,
             $titleTop: '心得体会',
-            $content: studyInfoArr
+            $contentLen: studyArrLen,
+            $contentInfo: studyInfoArr
           }
         "
       ></ng-container>
@@ -48,11 +51,12 @@
   let-trunLeft="$trunLeft"
   let-trunRight="$trunRight"
   let-title="$titleTop"
-  let-content="$content"
+  let-contentInfo="$contentInfo"
+  let-contentLen="$contentLen"
 >
   <div class="card-top-title">
     <span class="card-title-info">{{ title }}</span>
-    <div class="page-turn">
+    <div class="page-turn" *ngIf="contentLen > 1">
       <span class="author-source-left" (click)="trunLeft($event)"
         ><i nz-icon type="left" theme="outline"></i
       ></span>
@@ -62,8 +66,37 @@
     </div>
   </div>
   <div class="card-content">
-    <div class="card-content-info" *ngFor="let item of content">
-      <div>{{ item.content }}</div>
+    <div
+      class="card-content-page google-scrollbar"
+      *ngFor="let i of contentInfo"
+    >
+      <div class="card-content-info" *ngFor="let item of i.tsCard">
+        <p class="card-info-title">{{ item.tsTitle }}</p>
+        <div class="card-info-body" *ngFor="let it of item.tsContent">
+          <span class="card-body-tsHeader">{{ it.tsHeader }}</span>
+          <ng-container *ngIf="it.type === 0">
+            <input
+              #inputImg
+              type="file"
+              class="input-file"
+              (change)="changeImg($event, it)"
+            />
+            <img
+              (click)="inputImg.click()"
+              class="card-body-tsImg"
+              [src]="it.tsInfo"
+              alt="作者头像"
+            />
+            <button (click)="inputImg.click()" class="card-body-btn">
+              更换
+            </button>
+          </ng-container>
+          <span *ngIf="it.type === 1">{{ it.tsInfo }}</span>
+          <span *ngIf="it.type === 2" class="card-body-tsInfo2">{{
+            it.tsInfo
+          }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </ng-template>
