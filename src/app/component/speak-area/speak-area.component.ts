@@ -30,11 +30,16 @@ export class SpeakAreaComponent implements OnInit {
       JSON.parse(sessionStorage.getItem("userInfo")).name
     );
     this.speakSrv.array.forEach(item => {
-      if (item.upThumb && item.upThumb.name.includes(username)) {
+      if (item.upThumb && item.upThumb.name.has(username)) {
         item.upThumb.isUpThumbing = true;
       } else {
         item.upThumb.isUpThumbing = false;
       }
+      // if (item.upThumb && item.upThumb.name.includes(username)) {
+      //   item.upThumb.isUpThumbing = true;
+      // } else {
+      //   item.upThumb.isUpThumbing = false;
+      // }
     });
   }
   /**
@@ -49,22 +54,25 @@ export class SpeakAreaComponent implements OnInit {
       return item.id == guid;
     });
     let speakAreaUpThumb = this.speakInfoArr[speakArrIndex].upThumb;
-    if (speakAreaUpThumb.name.includes(username)) {
+    let nameIndex = speakAreaUpThumb.name.length;
+    let mapName = new Map(speakAreaUpThumb.name);
+    if (mapName.has(username)) {//采用map的结构数组,查询时事件复杂度为O(1)
       this.removeUpThumb(speakAreaUpThumb, username);
     } else {
-      this.addUpThumb(speakAreaUpThumb, username);
+      this.addUpThumb(speakAreaUpThumb, [username, nameIndex]);
     }
     speakAreaUpThumb.isUpThumbing = !speakAreaUpThumb.isUpThumbing;
   }
-  addUpThumb(upThumb, name) {
-    upThumb.count++;
-    upThumb.name.push(name);
+  addUpThumb(upThumb, nameArr: Array<any>) {
+    upThumb.name.set(nameArr[0],nameArr[1])
+    // upThumb.name.push(nameArr);
   }
-  removeUpThumb(upThumb, name) {
-    upThumb.count--;
-    let currentSet = new Set(upThumb.name);
-    currentSet.delete(name);
-    upThumb.name = Array.from(currentSet);
+  removeUpThumb(upThumb, name: string) {
+    // let mapName = new Map(upThumb.name);
+    upThumb.name.delete(name);
+    // let currentSet = new Set(upThumb.name);
+    // currentSet.delete(name);
+    // upThumb.name = Array.from(currentSet);
   }
   moreSpeak() {
     let currentSpeakLen = this.speakInfoArr.length;

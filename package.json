@@ -6,6 +6,9 @@
     "start": "ng serve",
     "start-yf": "ng serve --host 127.0.0.1 --port 4210",
     "build": "ng build",
+    "build-devp": "ng build --prod --base-href /demo --configuration=devp",
+    "build-text": "ng build --prod --base-href /demo --configuration=text",
+    "build-prod": "ng build --prod --base-href /demo --configuration=production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

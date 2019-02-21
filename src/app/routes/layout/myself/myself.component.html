@@ -9,7 +9,8 @@
           $trunRight: authorTrunRight,
           $titleTop: '作者资料',
           $contentLen: authorArrLen,
-          $contentInfo: authorInfoArr
+          $contentInfo: authorInfoArr,
+          $arrIndex: authorArrIndex
         }
       "
     ></ng-container>
@@ -24,7 +25,8 @@
             $trunRight: expTrunRight,
             $titleTop: '项目经验',
             $contentLen: expArrLen,
-            $contentInfo: expInfoArr
+            $contentInfo: expInfoArr,
+            $arrIndex: expArrIndex
           }
         "
       ></ng-container>
@@ -38,7 +40,8 @@
             $trunRight: studyTrunRight,
             $titleTop: '心得体会',
             $contentLen: studyArrLen,
-            $contentInfo: studyInfoArr
+            $contentInfo: studyInfoArr,
+            $arrIndex: studyArrIndex
           }
         "
       ></ng-container>
@@ -53,14 +56,21 @@
   let-title="$titleTop"
   let-contentInfo="$contentInfo"
   let-contentLen="$contentLen"
+  let-arrIndex="$arrIndex"
 >
   <div class="card-top-title">
     <span class="card-title-info">{{ title }}</span>
     <div class="page-turn" *ngIf="contentLen > 1">
-      <span class="author-source-left" (click)="trunLeft($event)"
+      <span
+        class="author-source-left"
+        [ngClass]="{ disableBtn: arrIndex === 1 }"
+        (click)="trunLeft($event)"
         ><i nz-icon type="left" theme="outline"></i
       ></span>
-      <span class="author-source-right" (click)="trunRight($event)"
+      <span
+        class="author-source-right"
+        (click)="trunRight($event)"
+        [ngClass]="{ disableBtn: arrIndex === contentLen }"
         ><i nz-icon type="right" theme="outline"></i
       ></span>
     </div>

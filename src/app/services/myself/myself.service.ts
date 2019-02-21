@@ -7,6 +7,14 @@ import { isTemplateRef } from "../../../../node_modules/ng-zorro-antd";
 export class MyselfService {
   constructor() {}
 }
+class CreateInfo {
+  tsTitle: string;
+  tsContent: Array<any>;
+  constructor(title: string, contentArr: Array<any>) {
+    title && (this.tsTitle = title);
+    contentArr && (this.tsContent = contentArr);
+  }
+}
 
 /**
  * 本模拟数据服务使用了三重循环嵌套，可以大量减少代码量,增加大量逻辑理解
@@ -222,13 +230,4 @@ export class StudyInfoService {
       ]
     }
   ];
-}
-
-export class CreateInfo {
-  tsTitle: string;
-  tsContent: Array<any>;
-  constructor(title: string, contentArr: Array<any>) {
-    title && (this.tsTitle = title);
-    contentArr && (this.tsContent = contentArr);
-  }
 }

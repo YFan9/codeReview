@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  .thunk-content{
+  .thunk-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -57,6 +57,12 @@
         font-size: 18px;
         &:hover {
           color: #0059b2;
+        }
+      }
+      .disableBtn {
+        cursor: not-allowed;
+        i {
+          color: #ddd;
         }
       }
     }

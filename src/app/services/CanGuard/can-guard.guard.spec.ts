@@ -1,15 +1,15 @@
 import { TestBed, async, inject } from '@angular/core/testing';
 
-import { CanGuardGuard } from './can-guard.guard';
+import { CanGuard } from './can-guard.guard';
 
-describe('CanGuardGuard', () => {
+describe('CanGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CanGuardGuard]
+      providers: [CanGuard]
     });
   });
 
-  it('should ...', inject([CanGuardGuard], (guard: CanGuardGuard) => {
+  it('should ...', inject([CanGuard], (guard: CanGuard) => {
     expect(guard).toBeTruthy();
   }));
 });

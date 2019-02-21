@@ -1,26 +1,30 @@
-.wrap{
-    width: 100%;
-    height: 100%;
-    background-image: url('../../../assets/images/error/errorInfo.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    .goBackHome{
-        width: 200px;
-        height: 40px;
-        cursor: pointer;
-        position: absolute;
-        left: 50%;
-        margin-left: -100px;
-        top: 661px
-    }
-    .markShadow{
-        width: 250px;
-        height: 30px;
-        position: absolute;
-        top: 730px;
-        left: 50%;
-        background-color: #fff;
-        transform: translateX(-50%);
-    }
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .error-img {
+    position: absolute;
+    left: 50%;
+    height: 600px;
+    transform: translateX(-50%);
+    margin-top: 100px;
+  }
+  .goBackHome {
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    top: 583px;
+  }
+  .markShadow {
+    width: 250px;
+    height: 30px;
+    position: absolute;
+    top: 656px;
+    left: 50%;
+    background-color: #fff;
+    transform: translateX(-50%);
+  }
 }
