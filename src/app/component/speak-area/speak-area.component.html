@@ -16,8 +16,8 @@
             [ngClass]="{ upThumbing: item.upThumb.isUpThumbing == true }"
             (click)="hindleUpThumb(item.id)"
             ><i nz-icon type="like" theme="outline"></i
-            ><span [ngClass]="{ blankSeat: item.upThumb.name.length === 0 }">{{
-                item.upThumb.name.length
+            ><span [ngClass]="{ blankSeat: item.upThumb.name.size === 0 }">{{
+                item.upThumb.name.size
             }}</span></span
           >
           <span class="speak-other-people speak-icon"

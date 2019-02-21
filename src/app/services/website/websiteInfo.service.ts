@@ -396,7 +396,7 @@ export class speakInfoService {
         "前端程序员是最有思想的，因为他不仅要和后端沟通，还要和UI沟通，和产品经理沟通。说不定还要直接和用户沟通，嗯~同理心估计就是这样来的",
       date: ShowDate.differDate("2018-02-17"),
       upThumb: {
-        name: []
+        name: new Map()
       }
     }
   ];
