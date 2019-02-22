@@ -29,7 +29,7 @@ export class AuthorInfoService {
         new CreateInfo("基本资料：", [
           {
             tsHeader: "头像：",
-            tsInfo: "../../../assets/images/myself/author_header.jpg",
+            tsInfo: "assets/images/myself/author_header.jpg",
             type: 0
           },
           { tsHeader: "姓名：", tsInfo: "杨帆", type: 1 },
@@ -48,7 +48,7 @@ export class AuthorInfoService {
         new CreateInfo("基本资料：", [
           {
             tsHeader: "头像：",
-            tsInfo: "../../../assets/images/myself/author_header.jpg",
+            tsInfo: "assets/images/myself/author_header.jpg",
             type: 0
           },
           { tsHeader: "姓名：", tsInfo: "杨帆", type: 1 },
@@ -67,7 +67,7 @@ export class AuthorInfoService {
         new CreateInfo("基本资料：", [
           {
             tsHeader: "头像：",
-            tsInfo: "../../../assets/images/myself/author_header.jpg",
+            tsInfo: "assets/images/myself/author_header.jpg",
             type: 0
           },
           { tsHeader: "姓名：", tsInfo: "杨帆", type: 1 },
@@ -86,7 +86,7 @@ export class AuthorInfoService {
         new CreateInfo("基本资料：", [
           {
             tsHeader: "头像：",
-            tsInfo: "../../../assets/images/myself/author_header.jpg",
+            tsInfo: "assets/images/myself/author_header.jpg",
             type: 0
           },
           { tsHeader: "姓名：", tsInfo: "杨帆", type: 1 },
@@ -105,7 +105,7 @@ export class AuthorInfoService {
         new CreateInfo("基本资料：", [
           {
             tsHeader: "头像：",
-            tsInfo: "../../../assets/images/myself/author_header.jpg",
+            tsInfo: "assets/images/myself/author_header.jpg",
             type: 0
           },
           { tsHeader: "姓名：", tsInfo: "杨帆", type: 1 },
@@ -124,7 +124,7 @@ export class AuthorInfoService {
         new CreateInfo("非基本资料：", [
           {
             tsHeader: "头像：",
-            tsInfo: "../../../assets/images/myself/author_header.jpg",
+            tsInfo: "assets/images/myself/author_header.jpg",
             type: 0
           },
           { tsHeader: "姓名：", tsInfo: "杨帆", type: 1 },

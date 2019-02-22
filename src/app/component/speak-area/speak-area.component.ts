@@ -55,8 +55,7 @@ export class SpeakAreaComponent implements OnInit {
     });
     let speakAreaUpThumb = this.speakInfoArr[speakArrIndex].upThumb;
     let nameIndex = speakAreaUpThumb.name.length;
-    let mapName = new Map(speakAreaUpThumb.name);
-    if (mapName.has(username)) {//采用map的结构数组,查询时事件复杂度为O(1)
+    if (speakAreaUpThumb.name.has(username)) {//采用map的结构数组,查询时事件复杂度为O(1)
       this.removeUpThumb(speakAreaUpThumb, username);
     } else {
       this.addUpThumb(speakAreaUpThumb, [username, nameIndex]);
@@ -68,7 +67,6 @@ export class SpeakAreaComponent implements OnInit {
     // upThumb.name.push(nameArr);
   }
   removeUpThumb(upThumb, name: string) {
-    // let mapName = new Map(upThumb.name);
     upThumb.name.delete(name);
     // let currentSet = new Set(upThumb.name);
     // currentSet.delete(name);

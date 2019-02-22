@@ -195,8 +195,8 @@ export class frameInfoService {
 }
 
 export class cssInfoService {
-  piePatternSrc = "../../../assets/images/website/cssView_pie.png";
-  bgPatternSrc = "../../../assets/images/website/cssView_bg.png";
+  piePatternSrc = "assets/images/website/cssView_pie.png";
+  bgPatternSrc = "assets/images/website/cssView_bg.png";
   piePatternImg: any;
   bgPatternImg: any;
   itemStyle: any;
@@ -324,7 +324,7 @@ export class speakInfoService {
   array: Array<any> = [
     {
       id: "xxxx1",
-      src: "../../../assets/images/website/cssView_pie.png",
+      src: "assets/images/website/cssView_pie.png",
       name: "admin",
       content:
         "本网站所有数据流，均为前端模拟产生，刷新页面可能导致部分临时数据可能丢失，比如点赞功能。",
@@ -335,7 +335,7 @@ export class speakInfoService {
     },
     {
       id: "xxxx2",
-      src: "../../../assets/images/website/cssView_pie.png",
+      src: "assets/images/website/cssView_pie.png",
       name: "admin",
       content:
         "angular作为一个大而全的前端框架，虽然国内用的人远少于其他两大框架，但是其内置rxjs和ts的前瞻性，以及有谷歌背书的条件下。未来的发展一定不会差的。",
@@ -346,7 +346,7 @@ export class speakInfoService {
     },
     {
       id: "xxxx3",
-      src: "../../../assets/images/website/cssView_pie.png",
+      src: "assets/images/website/cssView_pie.png",
       name: "admin",
       content:
         "angular与angular.js有着本质性的不同，angular.js属于angular的第一代版本，而angular几乎是对angular.js的重构",
@@ -357,7 +357,7 @@ export class speakInfoService {
     },
     {
       id: "xxxx4",
-      src: "../../../assets/images/website/cssView_pie.png",
+      src: "assets/images/website/cssView_pie.png",
       name: "admin",
       content:
         "其实三大框架都只是工具而已，说不定未来还会有更加革新性的技术出现，比如一直被关注的WebAssembly？当然对于一个程序员来说，编程思想以及解决问题的思路才是最重要的，这些都需要时间沉淀。",
@@ -368,7 +368,7 @@ export class speakInfoService {
     },
     {
       id: "xxxx5",
-      src: "../../../assets/images/website/cssView_pie.png",
+      src: "assets/images/website/cssView_pie.png",
       name: "admin",
       content:
         "对于我这种非高级程序员来说，目前最好的语言是英语，最好的工具应该就是google了。",
@@ -379,7 +379,7 @@ export class speakInfoService {
     },
     {
       id: "xxxx6",
-      src: "../../../assets/images/website/cssView_pie.png",
+      src: "assets/images/website/cssView_pie.png",
       name: "admin",
       content:
         "个人经验，工作中你遇到的连google都解决不了的问题，其中百分之九十以上，都只会是因为你犯了一些超低级错误。",
@@ -390,7 +390,7 @@ export class speakInfoService {
     },
     {
       id: "xxxx7",
-      src: "../../../assets/images/website/cssView_pie.png",
+      src: "assets/images/website/cssView_pie.png",
       name: "admin",
       content:
         "前端程序员是最有思想的，因为他不仅要和后端沟通，还要和UI沟通，和产品经理沟通。说不定还要直接和用户沟通，嗯~同理心估计就是这样来的",

@@ -6,6 +6,7 @@ import {
   speakInfoService,
   sourceInfoService
 } from "../../../services/website/websiteInfo.service";
+import { HighFunc } from "src/app/common-tool/high-func";
 
 @Component({
   selector: "app-website",
@@ -23,6 +24,11 @@ export class WebsiteComponent implements OnInit {
 
   ngOnInit() {
     this.creatInfo();
+    var fn = HighFunc.currying(function(a, b, c, d, e) {
+      console.log([a, b, c, d, e]);
+    });
+    let aaa = fn("_", 2, 3);
+    aaa("_", "_")(4)(5)(1);
   }
   switchView: boolean = false;
   angularInfoArr: Array<any> = [];
