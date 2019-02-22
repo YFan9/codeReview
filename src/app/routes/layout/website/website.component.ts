@@ -24,11 +24,13 @@ export class WebsiteComponent implements OnInit {
 
   ngOnInit() {
     this.creatInfo();
+    /**
+     * 成功搞了个柯里化函数方法
+     */
     var fn = HighFunc.currying(function(a, b, c, d, e) {
       console.log([a, b, c, d, e]);
     });
-    let aaa = fn("_", 2, 3);
-    aaa("_", "_")(4)(5)(1);
+    fn(2, 3, 4)(1, 5);
   }
   switchView: boolean = false;
   angularInfoArr: Array<any> = [];
