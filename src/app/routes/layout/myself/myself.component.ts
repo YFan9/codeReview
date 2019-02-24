@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import {
-  AuthorInfoService,
-  ExpInfoService,
-  StudyInfoService
+  MyselfService
 } from "../../../services/myself/myself.service";
 
 @Component({
@@ -12,9 +10,7 @@ import {
 })
 export class MyselfComponent implements OnInit {
   constructor(
-    private authorInfoSrv: AuthorInfoService,
-    private expInfoSrv: ExpInfoService,
-    private studyInfoSrv: StudyInfoService
+    private myselfSrv: MyselfService
   ) {
     let array = [
       this.authorTrunLeft,
@@ -35,12 +31,7 @@ export class MyselfComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authorInfoArr = this.authorInfoSrv.array.slice(0, 1);
-    this.authorArrLen = this.authorInfoSrv.array.length;
-    this.expInfoArr = this.expInfoSrv.array.slice(0, 1);
-    this.expArrLen = this.expInfoSrv.array.length;
-    this.studyInfoArr = this.studyInfoSrv.array.slice(0, 1);
-    this.studyArrLen = this.studyInfoSrv.array.length;
+    this.initData();
   }
   authorInfoArr: Array<any> = [];
   authorArrIndex: number = 1;
@@ -51,12 +42,20 @@ export class MyselfComponent implements OnInit {
   studyInfoArr: Array<any> = [];
   studyArrIndex: number = 1;
   studyArrLen: number = 1;
+  initData() {
+    this.authorInfoArr = this.myselfSrv.authorArray.slice(0, 1);
+    this.authorArrLen = this.myselfSrv.authorArray.length;
+    this.expInfoArr = this.myselfSrv.expArray.slice(0, 1);
+    this.expArrLen = this.myselfSrv.expArray.length;
+    this.studyInfoArr = this.myselfSrv.studyArray.slice(0, 1);
+    this.studyArrLen = this.myselfSrv.studyArray.length;
+  }
   authorTrunLeft(event) {
     [this.authorArrIndex, this.authorInfoArr] = this.trunLeft(
       event,
       this.authorArrIndex,
       this.authorInfoArr,
-      this.authorInfoSrv.array
+      this.myselfSrv.authorArray
     );
   }
 
@@ -65,7 +64,7 @@ export class MyselfComponent implements OnInit {
       event,
       this.authorArrIndex,
       this.authorInfoArr,
-      this.authorInfoSrv.array
+      this.myselfSrv.authorArray
     );
   }
   expTrunLeft(event) {
@@ -73,7 +72,7 @@ export class MyselfComponent implements OnInit {
       event,
       this.expArrIndex,
       this.expInfoArr,
-      this.expInfoSrv.array
+      this.myselfSrv.expArray
     );
   }
 
@@ -82,7 +81,7 @@ export class MyselfComponent implements OnInit {
       event,
       this.expArrIndex,
       this.expInfoArr,
-      this.expInfoSrv.array
+      this.myselfSrv.expArray
     );
   }
   studyTrunLeft(event) {
@@ -90,7 +89,7 @@ export class MyselfComponent implements OnInit {
       event,
       this.studyArrIndex,
       this.studyInfoArr,
-      this.studyInfoSrv.array
+      this.myselfSrv.studyArray
     );
   }
   studyTrunRight(event) {
@@ -98,7 +97,7 @@ export class MyselfComponent implements OnInit {
       event,
       this.studyArrIndex,
       this.studyInfoArr,
-      this.studyInfoSrv.array
+      this.myselfSrv.studyArray
     );
   }
   /**
@@ -147,14 +146,12 @@ export class MyselfComponent implements OnInit {
 
   changeImg(event, item) {
     event = event || window.event;
-    console.log(item);
     let file = event.target.files[0];
-    console.log(file);
     let readerFile = new FileReader();
     readerFile.readAsDataURL(file);
     readerFile.onload = (event: any) => {
       item.tsInfo = event.target.result;
     };
-    event.target.value = null;//防报错
+    event.target.value = null; //防报错
   }
 }

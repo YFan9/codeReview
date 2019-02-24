@@ -11,13 +11,19 @@ import { registerLocaleData } from "@angular/common";
 import zh from "@angular/common/locales/zh";
 import { LoginComponent } from "./routes/login/login.component";
 import { ErrorInfoComponent } from "./routes/error-info/error-info.component";
-import { OverViewComponent } from './routes/layout/over-view/over-view.component';
-import { LayoutComponent } from './routes/layout/layout.component';
+import { OverViewComponent } from "./routes/layout/over-view/over-view.component";
+import { LayoutComponent } from "./routes/layout/layout.component";
 
 registerLocaleData(zh);
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ErrorInfoComponent, OverViewComponent, LayoutComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    ErrorInfoComponent,
+    OverViewComponent,
+    LayoutComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

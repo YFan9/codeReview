@@ -1,51 +1,49 @@
 import { Injectable } from "@angular/core";
 import { isTemplateRef } from "../../../../node_modules/ng-zorro-antd";
+import { HighFunc } from "src/app/common-tool/high-func";
 
 @Injectable({
   providedIn: "root"
 })
-export class MyselfService {
-  constructor() {}
-}
-class CreateInfo {
-  tsTitle: string;
-  tsContent: Array<any>;
-  constructor(title: string, contentArr: Array<any>) {
-    title && (this.tsTitle = title);
-    contentArr && (this.tsContent = contentArr);
-  }
-}
-
 /**
  * 本模拟数据服务使用了三重循环嵌套，可以大量减少代码量,增加大量逻辑理解
  * 但是实践开发使用当中这种并不是较优解，应用唯一标识字段配合html页面的多标签标识来实现该功能。
  * type=0 表示为图片信息，type=1 表示为文字描述，type=2 表示为醒目标注
+ * 为了提高可维护性，采用柯里化函数编程
  */
-export class AuthorInfoService {
+export class MyselfService {
   constructor() {}
-  array = [
+  creatInfo(title: string, content: Array<any>) {
+    let Info = { tsTitle: title, tsContent: content };
+    return Info;
+  }
+  private readonly authorCurry = HighFunc.currying(this.creatInfo);
+  private readonly authorBaTitle = this.authorCurry("基本资料：");
+  private readonly authorUnBaTitle = this.authorCurry("非基本资料：");
+  readonly authorBaInfo = this.authorBaTitle([
+    {
+      tsHeader: "头像：",
+      tsInfo: "assets/images/myself/author_header.jpg",
+      type: 0
+    },
+    { tsHeader: "姓名：", tsInfo: "杨帆", type: 1 },
+    { tsHeader: "性别：", tsInfo: "男", type: 1 },
+    {
+      tsHeader: "爱好：",
+      tsInfo: "看影评、以及一切能够大众娱乐的娱乐",
+      type: 1
+    },
+    {
+      tsHeader: "自白：",
+      tsInfo: "做一个有思想能赚小钱钱的代码工程师",
+      type: 1
+    }
+  ]);
+  authorArray = [
     {
       tsCard: [
-        new CreateInfo("基本资料：", [
-          {
-            tsHeader: "头像：",
-            tsInfo: "assets/images/myself/author_header.jpg",
-            type: 0
-          },
-          { tsHeader: "姓名：", tsInfo: "杨帆", type: 1 },
-          { tsHeader: "性别：", tsInfo: "男", type: 1 },
-          {
-            tsHeader: "爱好：",
-            tsInfo: "看影评、以及一切能够大众娱乐的娱乐",
-            type: 1
-          },
-          {
-            tsHeader: "自白：",
-            tsInfo: "做一个有思想能赚小钱钱的代码工程师",
-            type: 1
-          }
-        ]),
-        new CreateInfo("基本资料：", [
+        this.authorBaInfo,
+        this.authorBaTitle([
           {
             tsHeader: "头像：",
             tsInfo: "assets/images/myself/author_header.jpg",
@@ -64,64 +62,10 @@ export class AuthorInfoService {
             type: 2
           }
         ]),
-        new CreateInfo("基本资料：", [
-          {
-            tsHeader: "头像：",
-            tsInfo: "assets/images/myself/author_header.jpg",
-            type: 0
-          },
-          { tsHeader: "姓名：", tsInfo: "杨帆", type: 1 },
-          { tsHeader: "性别：", tsInfo: "男", type: 1 },
-          {
-            tsHeader: "爱好：",
-            tsInfo: "看影评、以及一切能够大众娱乐的娱乐",
-            type: 1
-          },
-          {
-            tsHeader: "自白：",
-            tsInfo: "做一个有思想能赚小钱钱的代码工程师",
-            type: 1
-          }
-        ]),
-        new CreateInfo("基本资料：", [
-          {
-            tsHeader: "头像：",
-            tsInfo: "assets/images/myself/author_header.jpg",
-            type: 0
-          },
-          { tsHeader: "姓名：", tsInfo: "杨帆", type: 1 },
-          { tsHeader: "性别：", tsInfo: "男", type: 1 },
-          {
-            tsHeader: "爱好：",
-            tsInfo: "看影评、以及一切能够大众娱乐的娱乐",
-            type: 1
-          },
-          {
-            tsHeader: "自白：",
-            tsInfo: "做一个有思想能赚小钱钱的代码工程师",
-            type: 1
-          }
-        ]),
-        new CreateInfo("基本资料：", [
-          {
-            tsHeader: "头像：",
-            tsInfo: "assets/images/myself/author_header.jpg",
-            type: 0
-          },
-          { tsHeader: "姓名：", tsInfo: "杨帆", type: 1 },
-          { tsHeader: "性别：", tsInfo: "男", type: 1 },
-          {
-            tsHeader: "爱好：",
-            tsInfo: "看影评、以及一切能够大众娱乐的娱乐",
-            type: 1
-          },
-          {
-            tsHeader: "自白：",
-            tsInfo: "做一个有思想能赚小钱钱的代码工程师",
-            type: 1
-          }
-        ]),
-        new CreateInfo("非基本资料：", [
+        this.authorBaInfo,
+        this.authorBaInfo,
+        this.authorBaInfo,
+        this.authorUnBaTitle([
           {
             tsHeader: "头像：",
             tsInfo: "assets/images/myself/author_header.jpg",
@@ -145,7 +89,7 @@ export class AuthorInfoService {
     },
     {
       tsCard: [
-        new CreateInfo("非特殊资料：", [
+        this.authorUnBaTitle([
           {
             tsHeader: "个人主页：",
             tsInfo: "暂无",
@@ -155,27 +99,25 @@ export class AuthorInfoService {
       ]
     }
   ];
-}
-export class ExpInfoService {
-  constructor() {}
-  array = [
+  private readonly expCurry = HighFunc.currying(this.creatInfo);
+  expArray = [
     {
       tsCard: [
-        new CreateInfo("CRUD code：", [
+        this.expCurry("CRUD code：")([
           {
             tsHeader: "增删改查工程师：",
             tsInfo: "能够对任意数据进行潇洒的增删改查处理",
             type: 1
           }
         ]),
-        new CreateInfo("ALGOL code", [
+        this.expCurry("ALGOL code：")([
           {
             tsHeader: "算法工程师：",
             tsInfo: "对空间复杂度与时间复杂度进行研究，并给出性能优解",
             type: 1
           }
         ]),
-        new CreateInfo("F2E：", [
+        this.expCurry("F2E：")([
           {
             tsHeader: "前端工程师",
             tsInfo: "没错就是个除了html、css、js以外调接口的",
@@ -185,13 +127,12 @@ export class ExpInfoService {
       ]
     }
   ];
-}
-export class StudyInfoService {
-  constructor() {}
-  array = [
+  private readonly studyCurry = HighFunc.currying(this.creatInfo);
+  private readonly studyBaTitle = this.studyCurry("如何解决问题：");
+  studyArray = [
     {
       tsCard: [
-        new CreateInfo("如何解决问题：", [
+        this.studyBaTitle([
           {
             tsHeader: "查寻资料或者技术相关网站：",
             tsInfo:
@@ -205,7 +146,7 @@ export class StudyInfoService {
     },
     {
       tsCard: [
-        new CreateInfo("如何解决问题：", [
+        this.studyBaTitle([
           {
             tsHeader: "学会记笔记",
             tsInfo:
@@ -218,7 +159,7 @@ export class StudyInfoService {
     },
     {
       tsCard: [
-        new CreateInfo("如何解决问题：", [
+        this.studyBaTitle([
           {
             tsHeader: "善用github",
             tsInfo:

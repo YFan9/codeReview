@@ -9,7 +9,9 @@
         {{ item.content }}
       </div>
       <div class="speak-right-bottom speak-right-section">
-        <span class="personal-speak-data">{{ item.date }}</span>
+        <span class="personal-speak-data">{{
+          item.date | showTime: "diff"
+        }}</span>
         <div class="personal-speak-func">
           <span
             class="speak-icon"
@@ -17,7 +19,7 @@
             (click)="hindleUpThumb(item.id)"
             ><i nz-icon type="like" theme="outline"></i
             ><span [ngClass]="{ blankSeat: item.upThumb.name.size === 0 }">{{
-                item.upThumb.name.size
+              item.upThumb.name.size
             }}</span></span
           >
           <span class="speak-other-people speak-icon"
